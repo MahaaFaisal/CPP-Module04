@@ -1,7 +1,7 @@
 
 CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -Wfatal-errors
-SRCS = Animal.cpp Dog.cpp Cat.cpp main.cpp Utils.cpp
+SRCS = Animal.cpp Dog.cpp Cat.cpp main.cpp Utils.cpp WrongCat.cpp WrongAnimal.cpp
 NAME = animals
 
 all: $(NAME)
