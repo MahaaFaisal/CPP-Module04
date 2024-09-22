@@ -12,13 +12,14 @@ class AMateria
 
 	public:
 		AMateria();
+		AMateria(std::string const &type);
 		AMateria(AMateria &other);
 		AMateria &operator=(AMateria &rhs);
 		virtual ~AMateria();
 
-		virtual std::string const &getType() const = 0;;
+		std::string const &getType() const;
 		virtual AMateria *clone() const = 0;
-		virtual void use(ICharacter &target) = 0;
+		virtual void use(ICharacter &target);
 };
 
 #endif
