@@ -5,6 +5,7 @@
 
 # include "AMateria.hpp"
 # include "ICharacter.hpp"
+
 class ICharacter;
 
 class Cure : public AMateria
@@ -17,8 +18,7 @@ class Cure : public AMateria
 		Cure &operator=(Cure &rhs);
 		~Cure();
 
-		std::string const & getType() const;
-		AMateria* clone() const;
+		AMateria *clone() const;
 		void use(ICharacter& target);
 };
 
