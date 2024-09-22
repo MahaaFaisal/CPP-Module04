@@ -14,6 +14,8 @@ AMateria::AMateria(std::string const &type)
 
 AMateria::AMateria(AMateria &other)
 {
+	if (this == &other)
+		return ;
 	std::cout << "AMateria copy constrcutor\n";
 	*this = other;
 }

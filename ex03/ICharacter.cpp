@@ -10,6 +10,7 @@ ICharacter::ICharacter(std::string name) : _name(name)
 	std::cout << "ICharacter parametrtized constructor\n";
 
 }
+
 ICharacter::ICharacter(ICharacter &other)
 {
 	(void)other;

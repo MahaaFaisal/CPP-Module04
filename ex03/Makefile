@@ -1,7 +1,7 @@
 
 CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
-SRCS = main.cpp ICharacter.cpp Character.cpp Cure.cpp AMateria.cpp
+SRCS = main.cpp LinkedList.cpp ICharacter.cpp Character.cpp Cure.cpp AMateria.cpp MateriaSource.cpp Ice.cpp
 NAME = interfaces
 
 all: $(NAME)

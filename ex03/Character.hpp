@@ -4,12 +4,14 @@
 # include <iostream>
 # include "AMateria.hpp"
 # include "ICharacter.hpp"
-
+# include "LinkedList.hpp"
 
 class Character : public ICharacter
 {
 	private:
 		AMateria *_inventory[4];
+		LinkedList *unequiped;
+
 	public:
 		Character();
 		Character(std::string _name);

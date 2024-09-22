@@ -6,8 +6,6 @@
 # include "AMateria.hpp"
 # include "ICharacter.hpp"
 
-class ICharacter;
-
 class Cure : public AMateria
 {
 	private:

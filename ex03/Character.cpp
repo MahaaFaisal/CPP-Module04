@@ -5,6 +5,7 @@ Character::Character() : ICharacter()
 	std::cout << "Character constructor\n";
 	for (int i = 0; i < 4; i++)
 		_inventory[i] = NULL;
+	// *unequiped = new AMateria;
 }
 
 Character::Character(std::string name) : ICharacter(name)
@@ -17,17 +18,23 @@ Character::Character(std::string name) : ICharacter(name)
 
 Character::Character(Character &other)
 {
-	// COPY MATERIAS
-	(void)other;
+	if (this == &other)
+		return ;
 	std::cout << "Character copy constructor\n";
+	*this = other;
 }
 
 Character &Character::operator=(Character &rhs)
 {
-	(void)rhs;
 	std::cout << "Character copy assignment operator\n";
+	_name = rhs._name;
+	for (int i = 0; i < 4; i++)
+	{
+		delete _inventory[i];
+		_inventory[i] = NULL;
+		_inventory[i] = rhs._inventory[i]->clone();
+	}
 	return (*this);
-
 }
 
 Character::~Character()
@@ -42,7 +49,6 @@ std::string const &Character::getName() const
 
 void Character::equip(AMateria* m)
 {
-	// should we copy the pointers or the values?
 	for (int i = 0; i < 4 ; i++)
 	{
 		if (_inventory[i] == NULL)
@@ -54,18 +60,15 @@ void Character::equip(AMateria* m)
 	}
 }
 
-// The unequip() member function must NOT delete the Materia!
 void Character::unequip(int idx)
 {
 	if (idx >= 0 && idx < 4)
+	{
+		unequiped->insert(_inventory[idx]);
 		_inventory[idx] = NULL;
+	}
 }
 
-/*
-	The use(int, ICharacter&) member function will have to use 
-	the Materia at the slot[idx], and pass the target parameter 
-	to the AMateria::use function.
-*/
 void Character::use(int idx, ICharacter& target)
 {
 	if (idx < 0 || idx > 3 || _inventory[idx] == NULL)

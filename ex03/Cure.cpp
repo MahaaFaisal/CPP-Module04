@@ -7,6 +7,8 @@ Cure::Cure(): AMateria("cure")
 
 Cure::Cure(Cure &other) : AMateria("cure")
 {
+	if (this == &other)
+		return ;
 	std::cout << "Cure copy constrcutor\n";
 	*this = other;
 }
@@ -16,7 +18,6 @@ Cure &Cure::operator=(Cure &rhs)
 	std::cout << "Cure copy assignment operator\n";
 	this->_type = rhs._type;
 	return (*this);
-
 }
 
 Cure::~Cure()
