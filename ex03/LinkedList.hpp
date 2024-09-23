@@ -9,7 +9,7 @@ public:
     AMateria* data;
     Node* next;
 
-    Node(AMateria* data) : data(data), next(nullptr) {}
+    Node(AMateria* data) : data(data), next(NULL) {}
 };
 
 class LinkedList {

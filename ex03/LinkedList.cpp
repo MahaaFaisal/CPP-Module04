@@ -7,7 +7,7 @@ LinkedList::~LinkedList()
     Node* current = head;
     Node* nextNode;
 
-    while (current != nullptr)
+    while (current != NULL)
 	{
         nextNode = current->next;
         delete current->data;
@@ -24,7 +24,7 @@ void LinkedList::insert(AMateria* data)
 	else
 	{
         Node* current = head;
-        while (current->next != nullptr)
+        while (current->next != NULL)
             current = current->next;
         current->next = newNode;
     }
@@ -33,12 +33,12 @@ void LinkedList::insert(AMateria* data)
 void LinkedList::display() const
 {
     Node* current = head;
-    while (current != nullptr)
+    while (current != NULL)
 	{
         if (current->data) {
             std::cout << current->data->getType() << " -> ";
         }
         current = current->next;
     }
-    std::cout << "nullptr" << std::endl;
+    std::cout << "NULL" << std::endl;
 }

@@ -5,19 +5,21 @@ Character::Character() : ICharacter()
 	std::cout << "Character constructor\n";
 	for (int i = 0; i < 4; i++)
 		_inventory[i] = NULL;
-	// *unequiped = new AMateria;
+	unequiped = new LinkedList();
 }
 
 Character::Character(std::string name) : ICharacter(name)
 {
+	unequiped = new LinkedList();
 	std::cout << "Character parameterized constructor\n";
 	for (int i = 0; i < 4; i++)
 		_inventory[i] = NULL;
 }
 
 
-Character::Character(Character &other)
+Character::Character(Character &other) : ICharacter()
 {
+	unequiped = new LinkedList();
 	if (this == &other)
 		return ;
 	std::cout << "Character copy constructor\n";
@@ -32,7 +34,8 @@ Character &Character::operator=(Character &rhs)
 	{
 		delete _inventory[i];
 		_inventory[i] = NULL;
-		_inventory[i] = rhs._inventory[i]->clone();
+		if (rhs._inventory[i])
+			_inventory[i] = rhs._inventory[i]->clone ();
 	}
 	return (*this);
 }
@@ -40,6 +43,9 @@ Character &Character::operator=(Character &rhs)
 Character::~Character()
 {
 	std::cout << "Character destructor\n";
+	for (int i = 0; i < 4; i++)
+		delete _inventory[i];
+	delete unequiped;
 }
 
 std::string const &Character::getName() const

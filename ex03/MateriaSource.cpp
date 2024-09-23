@@ -32,10 +32,13 @@ MateriaSource::~MateriaSource()
 void MateriaSource::learnMateria(AMateria* m)
 {
 	if (_idx >= 4)
+	{
+		delete m;
 		std::cout << "Cannot learn more materias\n";
+	}
 	else
 	{
-		_learned[_idx] = m->clone();
+		_learned[_idx] = m;
 		_idx++;
 	}
 }
